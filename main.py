@@ -26,6 +26,7 @@ def pprint(color):
     print("\033[0;35m",sep="",end="")
 
 def menu():
+  intro()
   pprint("red")
   intro()
   pprint("black")
@@ -37,7 +38,8 @@ def menu():
   - 'e' to edit a task.
   """)
 
-def add():  
+def add():
+  intro()
   global list
   global deleted
   print("Add task...")
@@ -54,6 +56,7 @@ def add():
         list[itemnum]=task
 
 def view():
+  intro()
   print("View list...")
   print(f"{list}",end='',sep='')
   time.sleep(2)
@@ -67,12 +70,23 @@ def view():
 def edit():
   intro()
   print("Edit an item...")
-  # code
+  x=1
+  for item in list:
+    x+=1
+    print(f"{x}{item}")
+  edit=input("Input the number of the item you want to delete...\n")edit=input("")
 
 def remove():
-  # code
+  intro()
+  print("Remove an item...")
+  x=1
+  for item in list:
+    x+=1
+    print(f"{x}{item}")
+  del=input("Input the number of the item you want to delete...\n")
+  deleted[del]=list[del]
+  list[del]=""
 
-  
 # Execution
 
 while True:
