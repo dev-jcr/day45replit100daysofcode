@@ -11,6 +11,7 @@ def intro():
   intro="""
   ✔️ Tudu
   Your task organizer
+  
   """
   print(f"{intro:^35}")
 
@@ -64,6 +65,8 @@ def view():
     menu()
 
 def edit():
+  intro()
+  print("Edit an item...")
   # code
 
 def remove():
