@@ -1,4 +1,5 @@
-from prettytable import os, time, random, prettytable, ALL, FRAME
+from prettytable import prettytable, ALL, FRAME
+import os, time, random
 
 # Variables
 
@@ -20,13 +21,12 @@ def pprint(color):
     print('\033[0;31m',sep="",end="")
   elif color=="black":
     print('\033[0;31m',sep="",end="")
-  elif color=="green"
+  elif color=="green":
     print("\033[0;32m",sep="",end="")
   elif color=="purple":
     print("\033[0;35m",sep="",end="")
 
 def menu():
-  intro()
   pprint("red")
   intro()
   pprint("black")
@@ -37,23 +37,37 @@ def menu():
   - 'd' to delete a task.
   - 'e' to edit a task.
   """)
-
+  action=input().lower()
+  if action=='a':
+    add()
+  elif action=='v':
+    view()
+  elif action=='d':
+    delete()
+  elif action=='e':
+    edit()
+  else:
+    print("That's not an option")
+    
 def add():
   intro()
   global list
   global deleted
   print("Add task...")
-  task=input("Write the task you want to add...")
-  while True
-    for item in list:
-      x=0
-      if task==item:
-        print("You already have this task on the list")
-        break
-      else:
-        itemnum=len(item)
-        print(itemnum)
-        list[itemnum]=task
+  task=input("Write the task you want to add...\n")
+  for item in list:
+    x=0
+    if task==item:
+      print("You already have this task on the list")
+      break
+    else:
+      itemnum=len(item)
+      print(itemnum)
+      list[itemnum]=task
+      print("Task succesfully added!")
+  time.sleep(1)
+  os.system("clear")
+  menu()
 
 def view():
   intro()
@@ -62,7 +76,7 @@ def view():
   time.sleep(2)
   print("Press any key to go back to main menu or exit to close the app")
   keypress=input("...")
-  if keypress=="exit"
+  if keypress=="exit":
     exit()
   else:
     menu()
@@ -74,7 +88,7 @@ def edit():
   for item in list:
     x+=1
     print(f"{x}{item}")
-  edit=input("Input the number of the item you want to delete...\n")edit=input("")
+  edit=input("Input the number of the item you want to delete...\n")
 
 def remove():
   intro()
@@ -83,11 +97,12 @@ def remove():
   for item in list:
     x+=1
     print(f"{x}{item}")
-  del=input("Input the number of the item you want to delete...\n")
-  deleted[del]=list[del]
-  list[del]=""
+  delete=input("Input the number of the item you want to delete...\n")
+  deleted[delete]=list[delete]
+  list[delete]=""
 
 # Execution
 
 while True:
+  menu()
   
